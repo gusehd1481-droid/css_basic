@@ -1,0 +1,42 @@
+body {}
+.wrap {
+    background-color:#95FBFF;
+    text-align:center;
+    width:393px; height:100vh;
+    margin:0 auto;
+    padding:20px 15px;
+}
+.wrap > * {margin-bottom:30px;}
+.wrap h2,   /* 그룹선택자(,) 기준으로 뒤 선택자 reset, 부모부터 다시쓰기 */
+.wrap h3 {
+    font-size:1.50rem;
+    font-weight:700;
+}
+.wrap h2 {}
+.wrap h2+p {margin-bottom:15px;}
+.wrap p {}
+.wrap p:nth-child(2) em {color:#FF0000;}
+
+/* 인접형제선택자를 이용한 p 선택방법 */
+.wrap h2+p,
+.wrap h3+p {
+    font-size:0.75rem;
+    margin-bottom:15px;
+}
+
+/* 수열선택자를 이용한 p 선택방법 */
+.wrap p:nth-child(2),
+.wrap p:nth-child(5) {}
+.wrap #content {
+    font-size:1.0rem;
+    /* margin:0 0 30px (상,좌우,하) */
+}
+.wrap #content span {
+    background-color:#59FF59;
+}
+.wrap h3 {}
+.wrap p:nth-child(5) {}
+.wrap .details {
+    font-size:1.0rem;
+}
+.wrap .details em {}
