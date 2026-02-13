@@ -132,7 +132,7 @@
     * 부모 후보(dl, dt)들에게 추가 position 설정 안할 시 body 기준으로 움직임
     * `dl dt p {position:absolute}`
 * `z-index`
-    * absolute로 인해 겹처진 형제 요소들 사이의 중첩순서가 필요할때 
+    * absolute로 인해 겹쳐진 형제 요소들 사이의 중첩순서가 필요할때 
     * 0~999 작성가능 (단위작성없이 숫자만 작성)
     * position 속성이 없으면 z-index 적용 불가
 ## 가상 CSS 선택자 ::after , ::before
@@ -142,3 +142,15 @@
 ### after, before 사용 시 필수속성
 `content:'';` -> 내용인식속성, 글자 필요한 디자인이 아닐 경우 ''빈따옴표
 `display, background-color, width, height`
+## 계산기 함수 `calc()`
+* +,-,*,/,% 다양한 사칙연산 사용 가능
+* 추가 괄호를 통한 복잡한 계산 가능
+* **연산자 앞 뒤 여백 필수** `1+1(x)` ` 1 + 1(o)`
+* `width, height, margin, padding` 등 숫자 입력 속성 활용가능
+### calc() 활용 예시
+* `li {width:calc(100% / 4);}`
+    * 4개의 li를 같은 크기로 나누기
+* `li {width:calc((100% - (10px * 3)) / 4);}`
+    * 4개의 li에 각 10px씩 사이여백을 주기 위해 전체 부모 100% 너비 중 10*3 총 30px을 뺴고 나머지 값을 4로 나누기
+* `a {display:block; height:calc(100%-50px);}`
+    * a의 크기를 인식하게 만들고 50px을 뺀 나머지 부모크기주기

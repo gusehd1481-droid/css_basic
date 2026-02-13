@@ -161,50 +161,67 @@ body {}
 /* ------------------------------------------------------오늘의 책---------------------------------------------------------------------- */
 #today_book {
     width:1084px;
-    margin:0 auto;
+    margin:50px auto;
     background-color: aqua;
 }
-#today_book .title {}
+#today_book .title {
+    background-color:yellow ;
+    overflow:hidden; /* 자식 h1,more의 float적용으로 인한 부모인식 속성 */
+    padding:10px 0;
+}
 #today_book .title h1 {
     float:left;
+    font-size:2.0rem; font-weight:700;
 }
-#today_book .title .more {}
+#today_book .title .more {
+    float:right;
+}
 #today_book .contents {
-    width:calc(193px * 5);
-    background-color:yellow;
-    overflow:hidden;
+    overflow:hidden;/* 자식 li의 float적용으로 인해 부모 인식을 위한 값 */
     margin:0 auto;
 }
 #today_book .contents li {
+    background-color:yellowgreen;
+/*     width:193px; */
+    /* 옆으로 배치는 형제관계부터 생각하기 li*/
     float:left;
+    margin-right:29.7px;
+    width:calc((100% - (29.7px * 4)) / 5);
 }
+#today_book .contents li:last-child {margin:0;}
 #today_book .contents li .thumnail {
     position:relative;
 }
-#today_book .contents li .thumnail::after {
-    content:'';
-    display:block;
-    width:100%; height:100%;
-    background-color:rgba(0,0,0,0.6); top:0;
-    z-index:100;
-}
+#today_book .contents li .thumnail::after {}
 #today_book .contents li .thumnail img {
-    width:193px;
+    /* 부모 li의 너비값이 자식,자손 블록 기본 w100%로 인해 자동적용되는데 img는 인라인으로 자동적용이 안되기때문에
+    직접 100%를 입력해서 부모와 너비를 같게 만들어야 한다. */
+    width:100%;
 }
-#today_book .contents li .thumnail .popup > * {
+#today_book .contents li .thumnail .popup * {
     color:#fff;
 }
 #today_book .contents li .thumnail .popup {
-    position:absolute; top:0;
+    background-color:rgba(0,0,0,0.6);
+    /* 부모thumnail relative기준으로 왼쪽상단 위치같음, 가로세로크기같음 */
+    position:absolute; left:0; top:0; width:100%; height:100%;
+    padding:20px;
 }
-#today_book .contents li .thumnail .popup > a {}
-#today_book .contents li .thumnail .popup .view_cart {}
+#today_book .contents li .thumnail .popup > a {
+    line-height:1.5;
+    display:inline-block;
+    /* height:75%;*/
+    height:calc(100% - 60px);
+}
+#today_book .contents li .thumnail .popup .view_cart {
+    position:absolute; left:0; bottom:50px; width:100%;
+    text-align:center;
+}
 #today_book .contents li .thumnail .popup .view_cart a {
     border:1px solid #fff;
     border-radius: 12%;
     color:#fff;
     padding:8px 0;
-
 }
 #today_book .contents li .thumnail .popup .view_cart a {}
 #today_book .contents li h2 {
