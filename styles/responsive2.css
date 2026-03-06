@@ -1,0 +1,43 @@
+/* mobile -> PC 점점 크게 */
+#wrap {
+    padding:0 15px; margin:0 auto;
+    min-width:320px; max-width:1440px;
+    background-color: aqua;
+}
+#wrap > * {border:1px solid yellow;}
+#wrap header {
+    height:60px;
+    display:flex;
+    flex-flow:row nowrap;
+    justify-content:space-between;
+    align-items:center;
+}
+#wrap header h1 {}
+#wrap header nav {}
+#wrap main {}
+#wrap main section {
+    line-height:400px;
+    text-align:center;
+    background:linear-gradient(40deg, red, blue);
+}
+#wrap main section:nth-child(1) {}
+#wrap main section:nth-child(2) {}
+#wrap footer {
+    line-height:100px; /* 요소가 한줄일때 line-height 사용 시 그 요소 자체로 높이를 설정할 수 있음 */
+    text-align:center;
+}
+
+/* 반응형 @media */
+@media screen and (min-width:480px) {/* 480 이상 일때  */
+    #wrap {
+        padding:0 30px;
+    }
+    #wrap main {display:flex; flex-flow:row nowrap;}
+    #wrap main section {width:50%;}
+}/* 480~819 */
+@media screen and (min-width:820px) {
+    #wrap header {
+        flex-flow:column nowrap;
+        justify-content:center;
+    }
+}/* 820~1440 */

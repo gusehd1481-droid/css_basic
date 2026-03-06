@@ -29,6 +29,21 @@ main {
     top: 80px;
     text-align: center;
 }
+main::before,main::after {
+    content:''; display:block;/*  before, after 가상요소 ★필수 속성 */
+    width:50%; height:100%;
+    position:absolute; /* 향제랑 겹치는 위치 속성 */
+    z-index:600; /* 형제와 겹치는 중첩순서 */
+    top:0;/* 좌표설정 */
+}
+main::before {
+    background:linear-gradient(90deg, rgb(9,13,43), transparent);
+    left:0;
+}
+main::after {
+    right:0;
+    background:linear-gradient(-90deg, rgb(9,13,43), transparent);
+}
 main > * {max-width:1400px; margin:0 auto;}
 /* 중첩순서 처리 배경(10) 그라디언트(20) 나머지(30) */
 main .bg_wrap {position:absolute; z-index:10;}
@@ -40,24 +55,42 @@ main .bg_wrap .bg {width:1400px; margin:0 auto;}
 main .bg_wrap .bg1 {
     height:100px; 
     background:url(../images/bg_cloud.png) repeat-x;
+    background-position:center;/* 요소 고정, 요소 안 배경  */
+    animation:loop 60s linear infinite;
 }
 main .bg_wrap .bg2 {
     height:200px; 
     background:url(../images/bg_city1.png) repeat-x;
+    animation:loop 20s linear infinite;
 }
 main .bg_wrap .bg3 {
     height:100px; position:relative; top:-96px;
     background:url(../images/bg_city2.png) repeat-x;
+    animation:loop 10s linear infinite;
 }
 /* 메인제목 */
 main .txt {}
 /* 메인 자동차 위 리스트3 */
 /* 메인 자동차 */
-main .car {margin-top:150px; text-align:center; width:600px;}
+main .car {
+    margin-top:150px; text-align:center; width:600px;
+    animation:show 3s linear both;
+}
 main .car #car {width:100%;}
 main .car #left_tire, main .car #right_tire {
     position:absolute; bottom:25px; width:67px;
 }
+main .car #left_tire,
+main .car #right_tire {
+    animation:rotate 2s linear infinite;
+}
 main .car #left_tire {left:102px;}
 main .car #right_tire {right:91px;}
-
+main .scroll {
+    animation:scroll 1.5s linear alternate infinite;
+}
+main .scroll img {}
+footer {
+    height:200px;
+    background:linear-gradient(40deg, purple, transparent, brown, black, rgba(255,255,255,0.6));
+}
