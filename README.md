@@ -233,3 +233,8 @@ html::-o-scrollbar-thumb {background-color: #222;border-radius: 5px;}
 background-clip: text;
 color: transparent;
 **글자안에서 그라데이션 효과 및 배경이미지를 마스크씌워서 보여주고싶을때 사용하는 속성값 모음**
+## 말줄임 표시
+* **정해진 크기** 안에서 긴 텍스트를 말줄임으로 표현할때
+* `white-space:nowrap;` 줄바꿈 되지 않도록 설정
+* `text-overflow:ellipsis;` 말줄임 표시로 대체
+* `overflow:hidden;` 위 3가지는 필수 속성
